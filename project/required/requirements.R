@@ -1,0 +1,7 @@
+install.packages('data.table')
+install.packages('Rtsne')
+install.packages('caret')
+install.packages('xgboost')
+install.packages('ggplot2')
+install.packages('gridExtra') 
+install.packages('httr') 
