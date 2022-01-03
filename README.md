@@ -1,40 +1,15 @@
-# Data Science Project Template
+# Reddit Comment Predictions
 
-Template adapted from [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+This project is designed to use a dataset of 20k Reddit comments and predict which subreddit each one came from. The model was created using a training set of 200 comments independent of the 20k being predicted.
 
+This was a final project for STAT 380 (Data Science using R) at The Pennsylvania State University
 
+## Methods
 
-## Convention
+Each comment is embedded and then, using t-SNE, the data is reduced to just three dimentions. 
 
-Following this directory structure
-```
-|--project_name                           <- Project root level that is checked into github
-  |--project                              <- Project folder
-    |--README.md                          <- Top-level README for developers
-    |--volume
-    |   |--data
-    |   |   |--external                   <- Data from third party sources
-    |   |   |--interim                    <- Intermediate data that has been transformed
-    |   |   |--processed                  <- The final model-ready data
-    |   |   |--raw                        <- The original data dump
-    |   |
-    |   |--models                         <- Trained model files that can be read into R or Python
-    |
-    |--required
-    |   |--requirements.txt               <- The required libraries for reproducing the Python environment
-    |   |--requirements.r                 <- The required libraries for reproducing the R environment
-    |
-    |
-    |--src
-    |   |
-    |   |--features                       <- Scripts for turning raw and external data into model-ready data
-    |   |   |--build_features.r
-    |   |
-    |   |--models                         <- Scripts for training and saving models
-    |   |   |--train_model.r
-    |   |
-    |
-    |
-    |
-    |--.getignore                         <- List of files not to sync with github
-```
+XGBoost is then used to build and hypertune a model that predicts probabilities of each comment being a part of the 10 possible subreddits.
+
+## Results
+
+The final predictions are found in /project/volume/data/processed/submit.csv. Each row corresponds to the comments in the test set, with probabilities for that comment belonging to each of the 10 possible subreddits.
