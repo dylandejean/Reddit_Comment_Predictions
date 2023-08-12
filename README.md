@@ -13,3 +13,5 @@ XGBoost is then used to build and hypertune a model that predicts probabilities 
 ## Results
 
 The final predictions are found in /project/volume/data/processed/submit.csv. Each row corresponds to the comments in the test set, with probabilities for that comment belonging to each of the 10 possible subreddits.
+
+run_project.R executes all code in the repository to make predictions.
